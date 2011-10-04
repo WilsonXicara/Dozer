@@ -34,11 +34,12 @@ public class ResourceLoader {
   public URL getResource(String resource) {
     resource = resource.trim();
 
-    URL result = Thread.currentThread().getContextClassLoader().getResource(resource);
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    URL result = classLoader !=null ? classLoader.getResource(resource):null;
 
     // Could not find resource. Try with the classloader that loaded this class.
     if (result == null) {
-      ClassLoader classLoader = ResourceLoader.class.getClassLoader();
+      classLoader = ResourceLoader.class.getClassLoader();
       if (classLoader != null) {
         result = classLoader.getResource(resource);
       }
