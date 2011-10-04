@@ -1,0 +1,14 @@
+*/.svn/
+# maven target
+*/target/
+# intelij
+*.iws
+*.ipr
+*.iml
+.idea
+# vim
+*.swp
+# eclipse
+.classpath
+.project
+.settings/
